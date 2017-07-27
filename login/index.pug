@@ -1,0 +1,81 @@
+link(href='../styles/login.styl' rel='stylesheet')
+include ../lib/icons-sprite.svg
+
+#content
+  #login.register
+    #header
+      #logo soci
+      #h-register register
+    #forms
+      #login-form
+        h2 welcome
+        form
+          input(type='text', placeholder='username')
+          input(type='password', placeholder='password')
+          input(type='submit', value='login')
+
+        
+      #register-form
+        h2 register for soci
+        #steps
+          .step.active basics
+          .step contribution
+          .step payment
+
+
+        form#register-form(action="http://syd.jjcm.org:8902/users/register" method='post')
+          #step1
+            p Let's start with the basics
+            #r-username.field-container
+              .error 
+              input(type='text' name='username' placeholder='username')
+            #r-email.field-container
+              .error 
+              input(type='email' name='email' placeholder='email')
+            #r-password.field-container
+              .error 
+              input(type='password' name='password' placeholder='password')
+            #r-passwordConfirmation.field-container
+              .error 
+              input(type='password' name='passwordConfirmation' placeholder='confirm password')
+            .buttons
+              #step-1-next.prev(onclick='login.login()') login
+              #step-1-next.next(onclick='login.goToStep(2)') next
+
+          #step2
+            p The whole point of soci is to contribute to artists. How much do you want to contribute per month?
+            #contribute-slider
+              #contribute-slider-handle
+            #contribution-amount-container
+              #server-amount
+                .amount $1
+                .subtitle soci fee
+              #contribution-amount
+                .amount $2
+                .subtitle artist contribution
+              #total-amount
+                .amount $3
+                | / month
+                .subtitle I'm a regular Joe
+
+            input(type='range' name='contribution' min='1', max='10')
+            .buttons
+              #step-2-prev.prev(onclick='login.goToStep(1)') back
+              #step-2-next.next(onclick='login.goToStep(3)') next
+
+          #step3
+            input(type='text', placeholder='credit card number')
+            input(type='text', placeholder='CVV')
+            input(type='text', placeholder='postcode')
+            .buttons
+              #step-3-prev.prev(onclick='login.goToStep(2)') back
+              #step-3-next.next(onclick='login.submitForm()') register
+              //input(type='submit', value='register')
+
+
+
+
+
+
+script(type='text/javascript' src='../utils.js')
+script(type='text/javascript' src='login.js')

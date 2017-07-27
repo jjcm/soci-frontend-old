@@ -1,10 +1,24 @@
 #sidebar
   width: 192px
-  border-right: 1px solid $border-color
   height: 100%
   position: relative
   padding-top: 54px
   min-width: 192px
+  //background: radial-gradient(ellipse at center, rgba(36,11,6,1) 0%, rgba(61,47,61,1) 100%)
+  border-right: 1px solid $border-color
+  //border-right: 1px solid #260e0a
+  #submit
+    border-radius: 30px
+    height: 30px
+    width: 120px
+    margin: 15px auto 30px
+    color: #fff
+    font-weight: 100
+    background: linear-gradient(to right, $green 0%, ($green - #111) 100%)
+    letter-spacing: 0.5px
+    text-align: center
+    line-height: 28px
+    cursor: pointer
   > div
     margin-bottom: 30px
   ul
@@ -46,6 +60,7 @@
     font-weight: 300
     top:0
     background: linear-gradient(to right, $green 0%, ($green - #111) 100%)
+    //background: linear-gradient(to right, #4b5649 0%, #603228 100%)
 
   #posts
     .header

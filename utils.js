@@ -69,22 +69,9 @@ var util = {
   getDomArray: function(dom){
     switch(Object.prototype.toString.call(dom)){
       case "[object String]":
-        switch(dom.charAt(0)){
-          case '.':
-            var doms = Array.prototype.slice.call(
-              document.getElementsByClassName(dom.replace('.',''))
-            )
-            return doms
-            break
-          case '#':
-            return [document.getElementById(dom.replace('#',''))]
-            break
-          default:
-            return Array.prototype.slice.call(
-              document.getElementsByTagName(dom)
-            )
-            break
-        }
+        return Array.prototype.slice.call(
+          document.querySelectorAll(dom)
+        )
         break
       case "[object HTMLCollection]":
         return Array.prototype.slice.call(dom)
